@@ -1,4 +1,6 @@
 ## ECS171_ML
+Allen Benjamin, Adib Guedoir, Aldo Sandoval
+
 Jupyter Notebook: https://colab.research.google.com/drive/1ovXUoYBr06Ob2OakHg9UBX_TWNf-wrYY?usp=sharing
 Data: https://data.world/nolanoreilly495/nba-data-with-salaries-1996-2017
 
