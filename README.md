@@ -1,4 +1,6 @@
 ## ECS171_ML
+Jupyter Notebook: https://colab.research.google.com/drive/1ovXUoYBr06Ob2OakHg9UBX_TWNf-wrYY?usp=sharing
+
 Team project using machine learning to analyze various information about NBA players to predict a worthy salary.
 
 ## Data Exploration
