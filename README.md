@@ -14,9 +14,9 @@ To preprocess our data, we must consider multiple aspects with the first being s
 
 The numbers that we got from the in-game statistics are very spread out, as the number of points or minutes played are on a much higher scale than steals or blocks. For this reason, we will scale the data appropriately.
 
-We then split the data into training and testing sets.
+Within the 'Position' category, there were players with multiple positions listed (e.g. 'SF-C'). For our analysis, we only want one position to label a player. We cleaned the data by setting those players' position to the first position listed (e.g. 'SF-C' would be changed to 'SF').
 
-Next, to train it, we will determine which model is appropriate to train it. We will likely begin with linear regression and then determine how to proceed from there.
+Data grouping was used to accurately predict the predicted salaries of the players. This was done by grouping the year and the position together; doing this tailors our predictions to the performance of the player in relation to the rest of their position group during the given year.
 
 ## Model
 For our first model we decided to run a linear regression model similarly how we learned in class. Considering now that our data was grouped into tuples by year and position (Year, Pos). We aimed to get a prediction for that year and position individually. In order to do so we ran our model inside inside of a for loop going through each group from 1996-2017 and all five positions 'PG', 'SG', 'SF', 'PF', and 'C'. Our goal was to find the statistic that best indicated the best paying salary from the ones mentioned in our preprocessing section. To build our model we first dropped the unnessary columns which include, 'Player', 'Salary' and ' Position' due to their string format and not relevent in game. We then selected our target, 'Salary'. To standardize our data we used the MinMaxScalar() function learned in class. After splitting the data into 80% for training and 20% for testing we built our linear regression model. In every iteration of our for loop we print both the mean square error (MSE) for training and testing. However, from the returned values we can see that the values for the MSE are very large and do not provide a clear distinction. 
