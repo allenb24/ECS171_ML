@@ -1,5 +1,5 @@
 ## ECS171_ML
-Allen Benjamin, Adib Guedoir, Aldo Sandoval
+Allen Benjamin, Adib Guedoir, Aldo Sandoval 
 
 Jupyter Notebook: https://colab.research.google.com/drive/1p--k5w-M9jOHpyErk886LaLgPj61Itq7#scrollTo=WAmiJJQ6e14o
 
