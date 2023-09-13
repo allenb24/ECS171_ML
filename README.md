@@ -2,6 +2,7 @@
 Allen Benjamin, Adib Guedoir, Aldo Sandoval
 
 Jupyter Notebook: https://colab.research.google.com/drive/1p--k5w-M9jOHpyErk886LaLgPj61Itq7#scrollTo=WAmiJJQ6e14o
+
 Data: https://data.world/nolanoreilly495/nba-data-with-salaries-1996-2017
 
 Team project using machine learning to analyze various information about NBA players to predict a worthy salary.
