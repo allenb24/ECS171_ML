@@ -63,6 +63,26 @@ In our final model, we decided to do feature selection on our data and divide th
 
 # Results
 
+## Data Exploration
+
+## Preprocessing
+
+## Model
+
+
 # Discussion
 
 # Conclusion
+Overall, we found this to be a very fun project, as the topic is related to something our team really enjoys. We found reasonable results when constructing our correlation matrices, as they seemed to accurately represent the correlation between certain statistics. For example, a player with a high 3-point shooting percentage was projected to also have a higher free throw percentage. 
+
+However, we did have some shortcomings. Our MSE was very large and we believed that it was due to the large number that is the salary of the player, which is typically in millions.
+
+## Collaboration Statement
+Allen Benjamin, Collaborator
+
+Adib Guedoir, Collaborator
+
+Aldo Sandoval, Collaborator
+
+
+We all worked together as a team and consistently met through Discord to work on our project. We communicated with each other throughout and each contributed to the milestones. Everyone was on the same page about what we wanted to accomplish, and we worked as a team by contributing code and making suggestions on how to approach each section, from preprocessing to our final model. There was no lack of effort by anyone throughout the project and we had great team chemistry.
