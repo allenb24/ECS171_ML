@@ -47,7 +47,7 @@ availability = ['Salary', 'G', 'GS', 'MP/G'] # Avaliablity
 ```
 
 ## Model
-
+For this project we used Supervised Learning Regression models. In specifc we used Linear Regression and Polynoimial Regression. We decided to use linear regression since we had a data set the was labeled, with varies numerical data and with a specific target as a column. As we learned in class linear regression is useful when you have a matrix X and a column vector y. In our case after cleaning the data we set our feature matrix X to include the specified in-games statistics and the 'Salary' column as our target y. To standardize the data we tried both MinMax and Z-Score scalers but ultimately kept MinMax as it yeild better results. After our training our linear regression model we expanded to the Polynomial regression of degree 2. We hope this type of model would fit the data better since not all statitics are closing correlatated.
 
 
 # Results
