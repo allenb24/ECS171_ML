@@ -53,10 +53,312 @@ availability = ['Salary', 'G', 'GS', 'MP/G'] # Avaliablity
 # Results
 
 ## Data Exploration
+This is the heatmap of the correlation between all aspects of our data:
+![Alt text](download.png)
+
+These are the heatmaps for the specific aspects of the game (offense, defense, playmaking, availability)
+![Alt text](download-1.png)
+
+![Alt text](download-2.png)
+
+![Alt text](download-3.png)
+
+![Alt text](download-4.png)
+
 
 ## Preprocessing
+After cleaning our data and filtering the positions, features, period, and N/A values, we have this:
+```
+NBA DATA SET
+Positions:  ['C' 'PF' 'SF' 'PG' 'SG']
+Features:  ['Player', 'Salary', 'Pos', 'Year', 'Age', 'G', 'GS', 'PER', 'PTS/G', 'AST/G', 'ORB/G', 'DRB/G', 'OBPM', 'DBPM', 'TRB/G', 'STL/G', 'BLK/G', 'TOV/G', '2P%', '3P%', 'eFG%', 'FT%', 'MP/G']
+Data Period:  [2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996]
+Columns w/ NA:  ['PER', '2P%', '3P%', 'eFG%', 'FT%']
+Columns w/ NA after cleaning:  []
+Data Rows:  9409
+Data Columns:  23
+```
+
+We then obtained the average salary for each player for each year and then grouped them into different ranges:
+```
+Average Salaries:  [1710539.0, 1980512.0, 2289899.0, 2511917.0, 2823992.0, 3358028.0, 3372248.0, 3577774.0, 3601343.0, 3675149.0, 3784542.0, 3902860.0, 4225603.0, 4581743.0, 4458596.0, 4336169.0, 4169421.0, 4189944.0, 5042071.0, 4166249.0, 4508850.0, 5657306.0]
+Group 1:  [2000 1999 1998 1997 1996]
+Group 2:  [2007 2006 2005 2004 2003 2002 2001]
+Group 3:  [2017 2016 2015 2014 2013 2012 2011 2010 2009 2008]
+```
+
+Next, we broke them down by each position and then categorized them into different aspects of basketball:
+```
+Years 1996-2000
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+```
 
 ## Model
+These are our outputs for our first linear regression model:
+```Linear Regression Model
+Data Features:  ['Year', 'Age', 'G', 'GS', 'PER', 'PTS/G', 'AST/G', 'ORB/G', 'DRB/G', 'OBPM', 'DBPM', 'TRB/G', 'STL/G', 'BLK/G', 'TOV/G', '2P%', '3P%', 'eFG%', 'FT%', 'MP/G']
+Target: Salary
+TRAINING Mean Squared Error is:  8677232253245.942
+TESTING  Mean Squared Error is:  9004849118587.037
+```
+
+Outputs for the polynomial model (2nd degree):
+```Polynomial Regression Model Degree 2
+Data Features:  ['Year', 'Age', 'G', 'GS', 'PER', 'PTS/G', 'AST/G', 'ORB/G', 'DRB/G', 'OBPM', 'DBPM', 'TRB/G', 'STL/G', 'BLK/G', 'TOV/G', '2P%', '3P%', 'eFG%', 'FT%', 'MP/G']
+Target: Salary
+TRAINING Mean Squared Error:  6515867731483.319
+TESTING  Mean Squared Error:  6985161144957.786
+```
+
+Outputs for grouped years with the average salary:
+```Linear Model for Salary Groups
+
+Years 1996-2000 
+TRAINING Mean Squared Error:  3807582698253.4463
+TESTING  Mean Squared Error:  2964517928759.518
+
+Years 2001-2007 
+TRAINING Mean Squared Error:  6518703415016.366
+TESTING  Mean Squared Error:  7732462331460.306
+
+Years 2008-2017 
+TRAINING Mean Squared Error:  11420931577355.373
+TESTING  Mean Squared Error:  9397297468441.938
+```
+
+Outputs for linear model with grouped years for each position:
+```Linear Model for Salary Groups and Positions
+
+
+
+Years 1996-2000
+
+Position C
+TRAINING Mean Squared Error:  3898677781471.917
+TESTING  Mean Squared Error:  5263299564826.124
+
+Position PF
+TRAINING Mean Squared Error:  3276620310097.7544
+TESTING  Mean Squared Error:  4420139042493.459
+
+Position SF
+TRAINING Mean Squared Error:  2318524051960.8296
+TESTING  Mean Squared Error:  1652905118328.126
+
+Position PG
+TRAINING Mean Squared Error:  1748011107848.1685
+TESTING  Mean Squared Error:  3101092759412.6753
+
+Position SG
+TRAINING Mean Squared Error:  4740619379431.312
+TESTING  Mean Squared Error:  2410032063627.0234
+
+
+
+Years 2001-2007
+
+Position C
+TRAINING Mean Squared Error:  6282403862322.076
+TESTING  Mean Squared Error:  6880601471262.061
+
+Position PF
+TRAINING Mean Squared Error:  7598832705954.246
+TESTING  Mean Squared Error:  8091724994512.151
+
+Position SF
+TRAINING Mean Squared Error:  6446549877582.223
+TESTING  Mean Squared Error:  8058025187882.841
+
+Position PG
+TRAINING Mean Squared Error:  4707963663312.306
+TESTING  Mean Squared Error:  5569293667382.371
+
+Position SG
+TRAINING Mean Squared Error:  6353148627482.31
+TESTING  Mean Squared Error:  4422556054135.364
+
+
+
+Years 2008-2017
+
+Position C
+TRAINING Mean Squared Error:  13235380171699.508
+TESTING  Mean Squared Error:  11370869813766.316
+
+Position PF
+TRAINING Mean Squared Error:  9040324927062.46
+TESTING  Mean Squared Error:  12765402908786.254
+
+Position SF
+TRAINING Mean Squared Error:  10367026948065.81
+TESTING  Mean Squared Error:  13107560881954.268
+
+Position PG
+TRAINING Mean Squared Error:  8548812549261.228
+TESTING  Mean Squared Error:  10527745559148.787
+
+Position SG
+TRAINING Mean Squared Error:  10297387641426.854
+TESTING  Mean Squared Error:  10849179089457.8
+```
+
+Outputs of linear regression for grouped years with different aspects of the game:
+```Linear Model for Salary Groups and Specific Statistics
+
+
+
+Years 1996-2000
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+TRAINING Mean Squared Error:  4862163147797.9
+TESTING  Mean Squared Error:  3866172462549.382
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+TRAINING Mean Squared Error:  4878064325894.496
+TESTING  Mean Squared Error:  3397144784734.2983
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+TRAINING Mean Squared Error:  5769655248139.349
+TESTING  Mean Squared Error:  4063849604211.781
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+TRAINING Mean Squared Error:  5518561691544.87
+TESTING  Mean Squared Error:  3623977016904.963
+
+
+
+Years 2001-2007
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+TRAINING Mean Squared Error:  8886551663738.182
+TESTING  Mean Squared Error:  10452430302321.023
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+TRAINING Mean Squared Error:  9322991725995.299
+TESTING  Mean Squared Error:  10897387903693.875
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+TRAINING Mean Squared Error:  9902700620412.766
+TESTING  Mean Squared Error:  11872235022760.121
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+TRAINING Mean Squared Error:  9409583138135.666
+TESTING  Mean Squared Error:  11206553119904.953
+
+
+
+Years 2008-2017
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+TRAINING Mean Squared Error:  14946094476376.242
+TESTING  Mean Squared Error:  11864016001379.627
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+TRAINING Mean Squared Error:  15721439432896.457
+TESTING  Mean Squared Error:  12850302318646.842
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+TRAINING Mean Squared Error:  17115088757551.688
+TESTING  Mean Squared Error:  13948398386212.086
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+TRAINING Mean Squared Error:  16232899420678.766
+TESTING  Mean Squared Error:  12802396591989.824
+```
+
+Outputs for polynomial model with groups for specific aspects of the game:
+```
+Polynimal Model for Groups and Specific Stats
+
+Years 1996-2000
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+TRAINING Mean Squared Error:  4359740108621.801
+TESTING  Mean Squared Error:  3816321990336.7847
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+TRAINING Mean Squared Error:  4685853779179.045
+TESTING  Mean Squared Error:  3299870372242.6377
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+TRAINING Mean Squared Error:  5425837030134.952
+TESTING  Mean Squared Error:  3925876920447.0835
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+TRAINING Mean Squared Error:  5331127643652.879
+TESTING  Mean Squared Error:  3496787120178.607
+
+Years 2001-2007
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+TRAINING Mean Squared Error:  8586837558025.07
+TESTING  Mean Squared Error:  10171812826191.656
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+TRAINING Mean Squared Error:  8862867137258.416
+TESTING  Mean Squared Error:  10834465573243.734
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+TRAINING Mean Squared Error:  9644655566904.281
+TESTING  Mean Squared Error:  11221487660998.725
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+TRAINING Mean Squared Error:  8996739982794.117
+TESTING  Mean Squared Error:  10816680827810.77
+
+Years 2008-2017
+
+Aspect OFFENSE
+Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
+TRAINING Mean Squared Error:  14570758118426.64
+TESTING  Mean Squared Error:  11664740527330.775
+
+Aspect DEFENSE
+Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
+TRAINING Mean Squared Error:  15014155081565.258
+TESTING  Mean Squared Error:  12368165777048.021
+
+Aspect PLAY MAKING
+Stats:  ['AST/G', 'TOV/G', 'OBPM']
+TRAINING Mean Squared Error:  16476106375221.81
+TESTING  Mean Squared Error:  13114356767145.271
+
+Aspect AVAILIBILTY
+Stats:  ['G', 'GS', 'MP/G']
+TRAINING Mean Squared Error:  15136902088488.074
+TESTING  Mean Squared Error:  11922041299156.035
+```
 
 
 # Discussion
