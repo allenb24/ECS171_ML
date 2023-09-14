@@ -3,7 +3,7 @@
 Allen Benjamin, Adib Guedoir, Aldo Sandoval
 
 ## Relevant links
-Jupyter Notebook: 
+Jupyter Notebook: https://colab.research.google.com/drive/1gr8wDl2S0fZCBton-ok_G3Bs-UDh4Vc7?usp=sharing 
 
 Dataset: https://data.world/nolanoreilly495/nba-data-with-salaries-1996-2017
 
@@ -47,7 +47,7 @@ availability = ['Salary', 'G', 'GS', 'MP/G'] # Avaliablity
 ```
 
 ## Model
-For this project we used Supervised Learning Regression models. In specifc we used Linear Regression and Polynoimial Regression. We decided to use linear regression since we had a data set the was labeled, with varies numerical data and with a specific target as a column. As we learned in class linear regression is useful when you have a matrix X and a column vector y. In our case after cleaning the data we set our feature matrix X to include the specified in-games statistics and the 'Salary' column as our target y. To standardize the data we tried both MinMax and Z-Score scalers but ultimately kept MinMax as it yeild better results. After our training our linear regression model we expanded to the Polynomial regression of degree 2. We hope this type of model would fit the data better since not all statitics are closing correlatated.
+For this project we used Supervised Learning Regression models. In specific we used Linear Regression and Polynoimial Regression. We decided to use linear regression since we had a data set the was labeled, with varies numerical data and with a specific target as a column. As we learned in class linear regression is useful when you have a matrix X and a column vector y. In our case after cleaning the data we set our feature matrix X to include the specified in-games statistics and the 'Salary' column as our target y. To standardize the data we tried both MinMax and Z-Score scalers but ultimately kept MinMax as it yeild better results. After our training our linear regression model we expanded to the Polynomial regression of degree 2. We hope this type of model would fit the data better due to its curve like graph since not all statitics are closing correlatated.
 
 
 # Results
@@ -186,6 +186,25 @@ TESTING  Mean Squared Error:  12802396591989.824
 ```
 
 # Discussion
+## Preprocessing
+
+
+## Data Exploration
+Knowing that there was going to be issues trying to directly correlate stats to player salary, we decided to group players’ stats by grouping them into different aspects of the game. We did this with the use of heat maps. To get an overall picture of this relationship, we started with a big heatmap to demonstrate the correlation between all of their stats.
+
+The heatmap gave us a better understanding of what different stats translate into aspects of play we want to evaluate. This also helped determine how good a player is at their position. For instance, a shooting guard, who is typically smaller and plays further away from the basket is not evaluated on their ability to rebound the ball as much as a center who is typically the main rebounder. Since different players’ positions are judged by different stats, it is important that we differentiate the aspects of the game with different positions, so that we can properly predict players’ salaries based on their skill. 
+
+Next, we broke down different aspects of basketball into their own heatmaps to make sure we were properly evaluating them based on various stats. 
+
+We made a heatmap of the stats we determined best represent offense in basketball. Almost all of the stats were positively correlated with each other besides a very small negative correlation between 2-point shooting percentage and 3-point and free throw percentage. This would make sense since some players are better at shooting farther away from the basket while other strictly layup or dunk the ball. 
+
+For defense, all of these stats are positively correlated with the lowest one being 0.21, these are in fact indicative of  defensive ability.
+
+Once again the consistently positive correlations for playmaking attributes demonstrates why we grouped these stats together to describe playmaking. This will be the most helpful for evaluating point guards, as they handle the ball the most throughout a game. 
+
+The category we made called “availability” is just based on how much a player was present throughout the season. Minutes per game is greatly correlated with games started. This would make sense since coaches tend to start their best players and the best players usually play the most.
+
+## Models
 Since our objective was to find which in-game statistics were the best indicators for the total salary a player earned for the year we decided to do a linear regression model. Our hope was that the model would be able to identify the most important feature that correlated to the target. For our features matrix ‘X’, we dropped the columns that were strings and did not make sense to include in the data which were ‘Player’, ‘Position’, and ‘Salary’. The ‘Salary’ column we set up as our target vector ‘y’. We then split our data using the ‘train_test_split()’ function into 80% for training and 20% for testing. We then standardized our data using the ‘MinMaxScaler()’ for both our training and testing data. However, for our training data, we both transformed and fit the data while only transforming the testing data. Using the linear regression model from sklearn, ‘LinearRegression()’ we create a model labeled ‘model1’. We then trained the model with the standardized data and the ‘y_training’ data, using the function model1.fit(X_train_standardized, y_train). After training the model we got our prediction ‘yhat_train’ for the training data and ‘yhat_test’ for our testing data. To see how well our model did we used the Mean Squared Error (MSE) metric for both data sets. However, we had extremely large numbers for both sets, our MSE for the training data was 8677232253245.942 and our MSE for the testing data was 9004849118587.037. 
 
 This model was not good. For our next model, we decided to use a Polynomial Regression model of degree 2. Similarly to the linear regression model we removed the unnecessary columns, standardized the data sets then applied the Polynomial model using ‘PolynomialFeatures()’. After we transformed and fitted out training data and only transformed out test data. We also used MSE as our measuring metric and got an MSE of 6515867731483.319 for our training data and an MSE of 6985161144957.786 for our testing data. Again this is not good. 
