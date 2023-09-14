@@ -12,15 +12,13 @@ The National Basketball Association (NBA) is one of the largest sports organizat
 
 
 # Introduction
-We believed this would be a fun and intresting project beacuse it combines two of our favorite things sports and computers. While this group does not share any favorite teams in fact our favorite teams are rivals we hoped that applying Machine learning to the data set filled with in NBA players' in game stats would indicate how the game has evolved over time and which apsects are more valuable in present day. It was our desire that after building an accurate model to predict the salary, we would be able to input new players along with their stats and have the model determine their monetary value. Then I would be able to brag how our rival team overpaid for a player. We also hoped the this project would be a great way to apply things we learned in class to the real world.
+We believed this would be a fun and intresting project beacuse it combines two of our favorite things sports and computers. While this group does not share any favorite teams in fact our favorite teams are rivals we hoped that applying Machine learning to the data set filled with in NBA players' in game stats would indicate how the game has evolved over time and which apsects are more valuable in present day. It was our desire that after building an accurate model to predict the salary, we would be able to input new players along with their stats and have the model determine their expected salary. Then we would be able to brag how our rival teams overpaid for a player. We also hoped the this project would be a great way to apply things we learned in class to the real world.
 
 
 # Methods
 
 ## Data Exploration
-In our data exploration, we first got a general overview of the correlation between each attribute amongst each other by dropping our ‘Players’ column and then visualizing the data with a correlation matrix, which is represented by a heatmap. 
-Moreover, we plotted another heatmap to display the correlation between salary and the different aspects of the game, such as offense, defense, playmaking, and availability.
-
+In our data exploration, we first got a general overview of the correlation between each attribute amongst each other by dropping our ‘Players’ column and then visualizing the data with a correlation matrix, which is represented by a heatmap. Moreover, we plotted another heatmap to display the correlation between salary and the different aspects of the game, such as offense, defense, playmaking, and availability.
 
 We set the data we'd like to analyze by first defining our dependent and independent variables. Our dependent variable 'y' is the annual salary that each player receives. Our independent variable 'X' holds the values that represent important statistics in a basketball game, including position, year, age, games played, games started, player efficiency rating, points, assists, offensive/defensive/total rebounds, offensive and defensive efficiency, steals, blocks, turnovers, shooting percentage, and minutes played.
 
@@ -47,7 +45,7 @@ availability = ['Salary', 'G', 'GS', 'MP/G'] # Avaliablity
 ```
 
 ## Model
-For this project we used Supervised Learning Regression models. In specific we used Linear Regression and Polynoimial Regression. We decided to use linear regression since we had a data set the was labeled, with varies numerical data and with a specific target as a column. As we learned in class linear regression is useful when you have a matrix X and a column vector y. In our case after cleaning the data we set our feature matrix X to include the specified in-games statistics and the 'Salary' column as our target y. To standardize the data we tried both MinMax and Z-Score scalers but ultimately kept MinMax as it yeild better results. After our training our linear regression model we expanded to the Polynomial regression of degree 2. We hope this type of model would fit the data better due to its curve like graph since not all statitics are closing correlatated.
+For our project we used Supervised Learning Regression models specifically focusing on Linear Regression and Polynoimial Regression. Considering that our data set was labeled, contained varies numerical data and with a specific target as a column we thought linear regression would be a good model approach. As we learned in class linear regression is useful when you have a matrix X and a column vector y. In our case after cleaning the data we set our feature matrix X to include the specified in-games statistics and the 'Salary' column as our target y. To standardize the data we tried both MinMax and Z-Score scalers but ultimately kept MinMax as it yeilded better results. After training our linear regression model we expanded to the Polynomial regression of degree 2. We hope this type of model would fit the data better due to its curve like graph since not all statitics are closely correlatated.
 
 
 # Results
@@ -187,7 +185,13 @@ TESTING  Mean Squared Error:  12802396591989.824
 
 # Discussion
 ## Preprocessing
+We wanted to organize our data into real application where we analyze each position and the most relevant attributes that impact the game the most. For the stats, we looked at offensive, defensive, playmaking, and availability attributes. These are what we deemed most important. 
 
+We then wanted to clean our data of all non-beneficial values. 
+
+To consider the financial changes of the NBA's economy, we decided it would be beneficial for us to create groups for the years. We analyzed the salary cap for each NBA year within that time frame and based our groups sequentially until we noticed a large increase in cap space. 
+
+To further improve our predictions, we wanted to get the average salaries for each group of years. This will help with our analysis because it can sort of counter the mega-contracts that players like Steph Curry, Kobe Bryant, Michael Jordan etc. received.
 
 ## Data Exploration
 Knowing that there was going to be issues trying to directly correlate stats to player salary, we decided to group players’ stats by grouping them into different aspects of the game. We did this with the use of heat maps. To get an overall picture of this relationship, we started with a big heatmap to demonstrate the correlation between all of their stats.
