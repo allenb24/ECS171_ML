@@ -65,7 +65,20 @@ In our final model, we decided to do feature selection on our data and divide th
 
 ## Data Exploration
 
+
 ## Preprocessing
+After cleaning our data and filtering the positions, features, period, and N/A values, we have this:
+```
+NBA DATA SET
+Positions:  ['C' 'PF' 'SF' 'PG' 'SG']
+Features:  ['Player', 'Salary', 'Pos', 'Year', 'Age', 'G', 'GS', 'PER', 'PTS/G', 'AST/G', 'ORB/G', 'DRB/G', 'OBPM', 'DBPM', 'TRB/G', 'STL/G', 'BLK/G', 'TOV/G', '2P%', '3P%', 'eFG%', 'FT%', 'MP/G']
+Data Period:  [2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996]
+Columns w/ NA:  ['PER', '2P%', '3P%', 'eFG%', 'FT%']
+Columns w/ NA after cleaning:  []
+Data Rows:  9409
+Data Columns:  23
+```
+
 
 ## Model
 
