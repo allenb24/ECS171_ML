@@ -113,110 +113,8 @@ TRAINING Mean Squared Error is:  8677232253245.942
 TESTING  Mean Squared Error is:  9004849118587.037
 ```
 
-Outputs for the polynomial model (2nd degree):
-```Polynomial Regression Model Degree 2
-Data Features:  ['Year', 'Age', 'G', 'GS', 'PER', 'PTS/G', 'AST/G', 'ORB/G', 'DRB/G', 'OBPM', 'DBPM', 'TRB/G', 'STL/G', 'BLK/G', 'TOV/G', '2P%', '3P%', 'eFG%', 'FT%', 'MP/G']
-Target: Salary
-TRAINING Mean Squared Error:  6515867731483.319
-TESTING  Mean Squared Error:  6985161144957.786
-```
-
-Outputs for grouped years with the average salary:
-```Linear Model for Salary Groups
-
-Years 1996-2000 
-TRAINING Mean Squared Error:  3807582698253.4463
-TESTING  Mean Squared Error:  2964517928759.518
-
-Years 2001-2007 
-TRAINING Mean Squared Error:  6518703415016.366
-TESTING  Mean Squared Error:  7732462331460.306
-
-Years 2008-2017 
-TRAINING Mean Squared Error:  11420931577355.373
-TESTING  Mean Squared Error:  9397297468441.938
-```
-
-Outputs for linear model with grouped years for each position:
-```Linear Model for Salary Groups and Positions
-
-
-
-Years 1996-2000
-
-Position C
-TRAINING Mean Squared Error:  3898677781471.917
-TESTING  Mean Squared Error:  5263299564826.124
-
-Position PF
-TRAINING Mean Squared Error:  3276620310097.7544
-TESTING  Mean Squared Error:  4420139042493.459
-
-Position SF
-TRAINING Mean Squared Error:  2318524051960.8296
-TESTING  Mean Squared Error:  1652905118328.126
-
-Position PG
-TRAINING Mean Squared Error:  1748011107848.1685
-TESTING  Mean Squared Error:  3101092759412.6753
-
-Position SG
-TRAINING Mean Squared Error:  4740619379431.312
-TESTING  Mean Squared Error:  2410032063627.0234
-
-
-
-Years 2001-2007
-
-Position C
-TRAINING Mean Squared Error:  6282403862322.076
-TESTING  Mean Squared Error:  6880601471262.061
-
-Position PF
-TRAINING Mean Squared Error:  7598832705954.246
-TESTING  Mean Squared Error:  8091724994512.151
-
-Position SF
-TRAINING Mean Squared Error:  6446549877582.223
-TESTING  Mean Squared Error:  8058025187882.841
-
-Position PG
-TRAINING Mean Squared Error:  4707963663312.306
-TESTING  Mean Squared Error:  5569293667382.371
-
-Position SG
-TRAINING Mean Squared Error:  6353148627482.31
-TESTING  Mean Squared Error:  4422556054135.364
-
-
-
-Years 2008-2017
-
-Position C
-TRAINING Mean Squared Error:  13235380171699.508
-TESTING  Mean Squared Error:  11370869813766.316
-
-Position PF
-TRAINING Mean Squared Error:  9040324927062.46
-TESTING  Mean Squared Error:  12765402908786.254
-
-Position SF
-TRAINING Mean Squared Error:  10367026948065.81
-TESTING  Mean Squared Error:  13107560881954.268
-
-Position PG
-TRAINING Mean Squared Error:  8548812549261.228
-TESTING  Mean Squared Error:  10527745559148.787
-
-Position SG
-TRAINING Mean Squared Error:  10297387641426.854
-TESTING  Mean Squared Error:  10849179089457.8
-```
-
 Outputs of linear regression for grouped years with different aspects of the game:
 ```Linear Model for Salary Groups and Specific Statistics
-
-
 
 Years 1996-2000
 
@@ -239,7 +137,6 @@ Aspect AVAILIBILTY
 Stats:  ['G', 'GS', 'MP/G']
 TRAINING Mean Squared Error:  5518561691544.87
 TESTING  Mean Squared Error:  3623977016904.963
-
 
 
 Years 2001-2007
@@ -265,7 +162,6 @@ TRAINING Mean Squared Error:  9409583138135.666
 TESTING  Mean Squared Error:  11206553119904.953
 
 
-
 Years 2008-2017
 
 Aspect OFFENSE
@@ -288,78 +184,6 @@ Stats:  ['G', 'GS', 'MP/G']
 TRAINING Mean Squared Error:  16232899420678.766
 TESTING  Mean Squared Error:  12802396591989.824
 ```
-
-Outputs for polynomial model with groups for specific aspects of the game:
-```
-Polynimal Model for Groups and Specific Stats
-
-Years 1996-2000
-
-Aspect OFFENSE
-Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
-TRAINING Mean Squared Error:  4359740108621.801
-TESTING  Mean Squared Error:  3816321990336.7847
-
-Aspect DEFENSE
-Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
-TRAINING Mean Squared Error:  4685853779179.045
-TESTING  Mean Squared Error:  3299870372242.6377
-
-Aspect PLAY MAKING
-Stats:  ['AST/G', 'TOV/G', 'OBPM']
-TRAINING Mean Squared Error:  5425837030134.952
-TESTING  Mean Squared Error:  3925876920447.0835
-
-Aspect AVAILIBILTY
-Stats:  ['G', 'GS', 'MP/G']
-TRAINING Mean Squared Error:  5331127643652.879
-TESTING  Mean Squared Error:  3496787120178.607
-
-Years 2001-2007
-
-Aspect OFFENSE
-Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
-TRAINING Mean Squared Error:  8586837558025.07
-TESTING  Mean Squared Error:  10171812826191.656
-
-Aspect DEFENSE
-Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
-TRAINING Mean Squared Error:  8862867137258.416
-TESTING  Mean Squared Error:  10834465573243.734
-
-Aspect PLAY MAKING
-Stats:  ['AST/G', 'TOV/G', 'OBPM']
-TRAINING Mean Squared Error:  9644655566904.281
-TESTING  Mean Squared Error:  11221487660998.725
-
-Aspect AVAILIBILTY
-Stats:  ['G', 'GS', 'MP/G']
-TRAINING Mean Squared Error:  8996739982794.117
-TESTING  Mean Squared Error:  10816680827810.77
-
-Years 2008-2017
-
-Aspect OFFENSE
-Stats:  ['3P%', 'OBPM', 'FT%', 'PER', 'eFG%', '2P%', 'PTS/G']
-TRAINING Mean Squared Error:  14570758118426.64
-TESTING  Mean Squared Error:  11664740527330.775
-
-Aspect DEFENSE
-Stats:  ['DRB/G', 'ORB/G', 'DBPM', 'STL/G', 'BLK/G', 'TRB/G']
-TRAINING Mean Squared Error:  15014155081565.258
-TESTING  Mean Squared Error:  12368165777048.021
-
-Aspect PLAY MAKING
-Stats:  ['AST/G', 'TOV/G', 'OBPM']
-TRAINING Mean Squared Error:  16476106375221.81
-TESTING  Mean Squared Error:  13114356767145.271
-
-Aspect AVAILIBILTY
-Stats:  ['G', 'GS', 'MP/G']
-TRAINING Mean Squared Error:  15136902088488.074
-TESTING  Mean Squared Error:  11922041299156.035
-```
-
 
 # Discussion
 Since our objective was to find which in-game statistics were the best indicators for the total salary a player earned for the year we decided to do a linear regression model. Our hope was that the model would be able to identify the most important feature that correlated to the target. For our features matrix ‘X’, we dropped the columns that were strings and did not make sense to include in the data which were ‘Player’, ‘Position’, and ‘Salary’. The ‘Salary’ column we set up as our target vector ‘y’. We then split our data using the ‘train_test_split()’ function into 80% for training and 20% for testing. We then standardized our data using the ‘MinMaxScaler()’ for both our training and testing data. However, for our training data, we both transformed and fit the data while only transforming the testing data. Using the linear regression model from sklearn, ‘LinearRegression()’ we create a model labeled ‘model1’. We then trained the model with the standardized data and the ‘y_training’ data, using the function model1.fit(X_train_standardized, y_train). After training the model we got our prediction ‘yhat_train’ for the training data and ‘yhat_test’ for our testing data. To see how well our model did we used the Mean Squared Error (MSE) metric for both data sets. However, we had extremely large numbers for both sets, our MSE for the training data was 8677232253245.942 and our MSE for the testing data was 9004849118587.037. 
