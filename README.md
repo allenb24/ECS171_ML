@@ -1,4 +1,4 @@
-# ECS171_ML
+# NBA Salary Prediction
 ## Contributors
 Allen Benjamin, Adib Guedoir, Aldo Sandoval
 
