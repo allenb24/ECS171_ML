@@ -52,16 +52,16 @@ For our project we used Supervised Learning Regression models specifically focus
 
 ## Data Exploration
 This is the heatmap of the correlation between all aspects of our data:
-![Alt text](download.png)
+![Alt text](media/download.png)
 
 These are the heatmaps for the specific aspects of the game (offense, defense, playmaking, availability)
-![Alt text](download-1.png)
+![Alt text](media/download-1.png)
 
-![Alt text](download-2.png)
+![Alt text](media/download-2.png)
 
-![Alt text](download-3.png)
+![Alt text](media/download-3.png)
 
-![Alt text](download-4.png)
+![Alt text](media/download-4.png)
 
 
 ## Preprocessing
